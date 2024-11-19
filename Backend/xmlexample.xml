@@ -1,0 +1,16 @@
+<?xml version ="1.0" encoding="UTF-8"?>
+<Videoclase>
+    <Slide>
+        <Titulo1>Ejemplo de XML </Titulo1>
+        <Titulo2> Esto es un subtitulo </Titulo2>
+        <Parrafo tts="Bienvenido a esta slide, lo que estás viendo es la primera diapositiva">
+        Parrafo de ejemplo para todos los que leen esto</Parrafo>
+    </Slide>
+    <Slide>
+        <Titulo1 tts="Diapositiva 2">Slide2 </Titulo1>
+        <Titulo2 tts="Ahora estás escuchando el subtitulo"> Esto es como un h2 </Titulo2>
+        <Titulo6> titulo6 </Titulo6>
+        <Parrafo tts="Hola, ¿como estás?. Bienvenido a la segunda diapositiva, lo que lees en pantalla es simplemente un parrafo abajo de un titulo y subtitulo">
+        Bienvenido a la segunda diapositiva, lo que lees en pantalla es simplemente un parrafo abajo de un titulo y subtitulo</Parrafo>
+    </Slide>
+</Videoclase>

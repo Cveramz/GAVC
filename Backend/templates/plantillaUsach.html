@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Presentación con Reveal.js</title>
+        <link rel="stylesheet" href="dist/reveal.css">
+        <link rel="stylesheet" href="dist/theme/white.css">
+        <style>
+            .logo {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                width: 150px;
+                height: auto;
+                z-index: 1000;
+            }
+            .reveal h1 {
+                font-size: 1.5em;
+            }
+            .reveal h2 {
+                font-size: 1.2em;
+            }
+            .reveal p {
+                font-size: 0.9em;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="images/logo_usach.png" alt="Logo Usach" class="logo">
+
+        <div class="reveal">
+            <div class="slides">
+                <!-- Diapositiva de inicio -->
+                <section data-initial-slide>
+                    <h1>Bienvenido a la Video-clase</h1>
+                    <p>Presiona la tecla derecha para iniciar la presentación.</p>
+                </section>
+                {{ content }}
+            </div>
+        </div>
+
+        <script src="dist/reveal.js"></script>
+        <script>
+            let synth = window.speechSynthesis;
+            let userActivated = false; // Indica si el usuario ha activado la interacción
+
+            function playTTSOnSlideChange() {
+                if (!userActivated) return; // Si no hay interacción del usuario, no reproducir TTS
+
+                // Cancelar cualquier reproducción de TTS en progreso antes de iniciar uno nuevo
+                synth.cancel();
+
+                const currentSlide = Reveal.getCurrentSlide();
+                const elementsWithTTS = currentSlide.querySelectorAll('[data-tts]');
+
+                // Crear una función que reproduzca los elementos con TTS secuencialmente
+                function speakNextElement(index) {
+                    if (index >= elementsWithTTS.length) {
+                        // Si no hay más elementos, pasar a la siguiente diapositiva
+                        Reveal.next();
+                        return;
+                    }
+
+                    const element = elementsWithTTS[index];
+                    const textToSpeak = element.getAttribute('data-tts');
+                    if (textToSpeak) {
+                        let utterance = new SpeechSynthesisUtterance(textToSpeak);
+                        utterance.onend = () => {
+                            // Cuando termine de hablar, pasar al siguiente elemento
+                            speakNextElement(index + 1);
+                        };
+                        synth.speak(utterance);
+                    } else {
+                        // Si no hay texto para hablar, pasar al siguiente elemento
+                        speakNextElement(index + 1);
+                    }
+                }
+
+                // Comenzar la reproducción desde el primer elemento
+                speakNextElement(0);
+            }
+
+            // Evento para detectar la primera interacción del usuario (cambio de diapositiva)
+            Reveal.on('slidechanged', (event) => {
+                if (!userActivated) {
+                    userActivated = true; // Marcar la interacción como activada
+                }
+                playTTSOnSlideChange();
+            });
+
+            // Inicializar Reveal.js
+            Reveal.initialize();
+        </script>
+    </body>
+</html>
