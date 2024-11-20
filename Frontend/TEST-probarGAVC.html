@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Endpoint - Generar Presentación</title>
+</head>
+<body>
+    <h1>Prueba de Endpoint - Generar Presentación</h1>
+    <p style="color: red; font-weight: bold;">
+        Asegúrese de que el servicio de Python (FastAPI + Uvicorn) se esté ejecutando en <code>http://127.0.0.1:8000</code>. 
+        Al iniciar el servidor, debería ver en la consola un mensaje similar a:
+    </p>
+    <pre style="background-color: #f8f8f8; padding: 10px; border: 1px solid #ccc;">
+INFO:     Started server process [PID]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+    </pre>
+    <form id="uploadForm">
+        <label for="xmlFile">Selecciona un archivo XML:</label><br><br>
+        <input type="file" id="xmlFile" name="file" accept=".xml" required><br><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="responseContainer" style="margin-top: 20px;"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            const fileInput = document.getElementById('xmlFile');
+            formData.append('file', fileInput.files[0]);
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/generate-presentation/', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const downloadUrl = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = downloadUrl;
+                    link.download = 'presentation.zip';
+                    link.textContent = 'Haz clic aquí para descargar el archivo ZIP generado';
+                    document.getElementById('responseContainer').innerHTML = '';
+                    document.getElementById('responseContainer').appendChild(link);
+                } else {
+                    const errorText = await response.text();
+                    document.getElementById('responseContainer').textContent = 'Error: ' + errorText;
+                }
+            } catch (error) {
+                document.getElementById('responseContainer').textContent = 'Error de conexión: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>
