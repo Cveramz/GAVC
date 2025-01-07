@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Presentación con Reveal.js</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/white.css">
+        <style>
+            .reveal {
+                --r-heading-font: 'Helvetica Neue', Helvetica, Arial, 'Source Sans', sans-serif;
+                font-family: 'Helvetica Neue', Helvetica, Arial, 'Source Sans', sans-serif;
+                /*cambiar --r-heading-font*/
+    
+            }
+    
+            .reveal h1 {
+                font-size: 6vw;
+            }
+    
+            .reveal h4 {
+                font-size: 4.5vw;
+            }
+    
+    
+            .reveal h3 {
+                font-size: 3vw;
+            }
+    
+            .reveal h4 {
+                font-size: 2.5vw;
+            }
+    
+            .reveal p {
+                font-size: 2.2vw;
+            }
+    
+            .reveal ul {
+                font-size: 2.2vw;
+            }
+    
+            pre {
+                width: 100%;
+                height: 90%;
+                overflow-y: auto;
+            }
+    
+            pre code {
+                font-size: 1.2vw;
+                line-height: 1.4;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="https://www.ingenieriaindustrial-usach.cl/wp-content/uploads/2023/11/cropped-favicon_usach-01.png"
+        alt="logo" style="position: absolute; top: 1.5vh; left: 1vw; width: 7vw; height: auto; z-index: 1000;">
+
+        <div class="reveal">
+            <div class="slides">
+                <!-- Diapositiva de inicio -->
+                <section data-initial-slide>
+                    <h1>Bienvenido a la videoclase</h1>
+                    <p>Presiona la tecla derecha para iniciar la presentación.</p>
+                </section>
+                
+            {{ content }}
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/monokai.css" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                hash: true,
+                slideNumber: true,
+                width: "100%",
+                height: "100%",
+                minScale: 0.1,
+                maxScale: 1,
+                plugins: [RevealHighlight]
+            });
+        });
+    </script>
+    </body>
+</html>

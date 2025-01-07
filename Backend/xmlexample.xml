@@ -1,16 +1,54 @@
-<?xml version ="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Videoclase>
-    <Slide>
-        <Titulo1>Ejemplo de XML </Titulo1>
-        <Titulo2> Esto es un subtitulo </Titulo2>
-        <Parrafo tts="Bienvenido a esta slide, lo que estás viendo es la primera diapositiva">
-        Parrafo de ejemplo para todos los que leen esto</Parrafo>
-    </Slide>
-    <Slide>
-        <Titulo1 tts="Diapositiva 2">Slide2 </Titulo1>
-        <Titulo2 tts="Ahora estás escuchando el subtitulo"> Esto es como un h2 </Titulo2>
-        <Titulo6> titulo6 </Titulo6>
-        <Parrafo tts="Hola, ¿como estás?. Bienvenido a la segunda diapositiva, lo que lees en pantalla es simplemente un parrafo abajo de un titulo y subtitulo">
-        Bienvenido a la segunda diapositiva, lo que lees en pantalla es simplemente un parrafo abajo de un titulo y subtitulo</Parrafo>
-    </Slide>
+    <Metadatos>
+        <SoftwareVersion>1.0</SoftwareVersion>
+        <Titulo>Fundamentos de Programación</Titulo>
+        <Autoria>Juan Pérez</Autoria>
+        <Autoria>María Gómez</Autoria>
+        <Fecha>2024-12-04</Fecha>
+    </Metadatos>
+    <Contenido>
+        <Diapositiva>
+            <Titulo>Introducción a la Programación</Titulo>
+            <Region>
+                <Parrafo>La programación es el proceso de creación de software mediante el diseño y escritura de código.</Parrafo>
+                <ListaNoOrdenada>
+                    <Item>Definición de Programación</Item>
+                    <Item>Lenguajes de Programación</Item>
+                    <Item>Historia de la Programación</Item>
+                </ListaNoOrdenada>
+            </Region>
+        </Diapositiva>
+        <Diapositiva>
+            <Titulo>Estructuras de Control</Titulo>
+            <Region>
+                <Parrafo>Las estructuras de control permiten alterar el flujo de ejecución de un programa.</Parrafo>
+                <ListaOrdenada>
+                    <Item>Condicionales (if, else)</Item>
+                    <Item>Bucles (for, while)</Item>
+                    <Item>Switch o Case</Item>
+                </ListaOrdenada>
+            </Region>
+        </Diapositiva>
+        <Diapositiva>
+            <Titulo>Funciones y Procedimientos</Titulo>
+            <Region>
+                <Parrafo>Las funciones son bloques de código reutilizables que realizan una tarea específica.</Parrafo>
+                <Tabla>
+                    <Fila>
+                        <Columna>Concepto</Columna>
+                        <Columna>Definición</Columna>
+                    </Fila>
+                    <Fila>
+                        <Columna>Función</Columna>
+                        <Columna>Devuelve un valor</Columna>
+                    </Fila>
+                    <Fila>
+                        <Columna>Procedimiento</Columna>
+                        <Columna>No devuelve valor</Columna>
+                    </Fila>
+                </Tabla>
+            </Region>
+        </Diapositiva>
+    </Contenido>
 </Videoclase>
