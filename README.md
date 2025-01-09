@@ -10,7 +10,7 @@ Haz clic [aquí](https://repositorio.usach.cl/discovery/delivery/56USACH_INST:RE
 
 ### En qué consiste
 
-El propósito de este proyecto es crear video-clases a partir de un archivo XML con un formato específico, que se procesa y parsea para hacerlo compatible con RevealJS. Esto permite la creación de un archivo HTML que puede visualizarse de manera offline, brindando una experiencia de presentación interactiva y de calidad.
+El propósito de este proyecto es crear video-clases a partir de un archivo XML con un formato específico, que se procesa y parsea para hacerlo compatible con RevealJS. Esto permite la creación de un archivo HTML que puede visualizarse como si fuese una presentación, brindando una experiencia de presentación interactiva y de calidad.
 
 ### Motivación para la refactorización
 
