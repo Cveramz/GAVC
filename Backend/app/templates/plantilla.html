@@ -14,39 +14,45 @@
 
         /* Tamaño responsivo para encabezados */
         .reveal h1 {
-            font-size: 6vw;
-            /* Tamaño adaptado al ancho de la ventana */
+            font-size: calc(3vw + 3vh);
         }
 
         .reveal h2 {
-            font-size: 4.8vw;
+            font-size: calc(2.4vw + 2.4vh);
         }
 
         .reveal h3 {
-            font-size: 3.8vw;
+            font-size: calc(1.9vw + 1.9vh);
         }
 
         .reveal h4 {
-            font-size: 3vw;
+            font-size: calc(1.5vw + 1.5vh);
         }
 
         .reveal h5,
         .reveal h6 {
-            font-size: 2.5vw;
+            font-size: calc(1.25vw + 1.25vh);
         }
 
         /* Tamaño responsivo para párrafos */
         .reveal p {
-            font-size: 2.2vw;
+            font-size: calc(1.1vw + 1.1vh);
             margin: 0;
-            margin-top: 10px;
+            margin-top: 2px;
         }
 
         /* Tamaño responsivo para listas */
         .reveal ul,
         .reveal ol {
-            font-size: 2.2vw;
-            margin: 0 0 10px 20px;
+            font-size: calc(1.1vw + 1.1vh);
+        }
+
+        .reveal tr {
+            font-size: calc(1.1vw + 1.1vh);
+        }
+
+        .reveal td {
+            font-size: calc(1.1vw + 1.1vh);
         }
 
         /* Tamaño responsivo para tablas */
@@ -56,9 +62,8 @@
         }
 
         .reveal table td {
-            padding: 5px;
             text-align: center;
-            font-size: 1.8vw;
+            font-size: calc(0.9vw + 0.9vh);
         }
 
         /* Código dentro de pre y code */
@@ -69,7 +74,7 @@
         }
 
         pre code {
-            font-size: 1.5vw;
+            font-size: calc(0.75vw + 0.75vh);
             line-height: 1.4;
         }
 

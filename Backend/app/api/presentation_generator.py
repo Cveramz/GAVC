@@ -1,6 +1,8 @@
 from jinja2 import Environment, FileSystemLoader
 from api.disposiciones.titulo import *
 from api.disposiciones.individual import *
+from api.disposiciones.duo import *
+from api.disposiciones.duo_horizontal import *
 import xml.etree.ElementTree as ET
 
 env = Environment(loader=FileSystemLoader('templates'))
@@ -22,6 +24,10 @@ def generate_presentation_html(xml_content: bytes) -> str:
             html_content += handle_titulo_diapositiva(diapositiva)
         elif disposicion == "individual":
             html_content += handle_individual_diapositiva(diapositiva)
+        elif disposicion in ["duo", "duo-vertical"]:
+            html_content += handle_duo_diapositiva(diapositiva)
+        elif disposicion == "duo-horizontal":
+            html_content += handle_duo_horizontal_diapositiva(diapositiva)
 
     template = env.get_template("plantilla.html")
     rendered_html = template.render(content=html_content)
