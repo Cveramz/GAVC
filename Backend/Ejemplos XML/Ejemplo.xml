@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Videoclase>
+    <Metadatos>
+        <SoftwareVersion>1.0</SoftwareVersion>
+        <Titulo>Fundamentos de Programación</Titulo>
+        <Autoria>Juan Pérez</Autoria>
+        <Autoria>María Gómez</Autoria>
+        <Fecha>2024-12-04</Fecha>
+    </Metadatos>
+    <Contenido>
+        <Diapositiva disposicion="titulo" titulo="Ingenieria de requerimientos">
+        </Diapositiva>
+
+
+        <Diapositiva disposicion="individual" titulo="Titulo">
+            <region justificacion="centro" tts="Esto es un ejemplo">
+                <texto>Esto es texto, un parrafo.</texto>
+                <listaOrdenada>
+                    <item>Definición de requerimientos</item>
+                    <item>Documentación de requerimientos</item>
+                    <item>Mantenimiento de requerimientos</item>
+                </listaOrdenada>
+            </region>
+        </Diapositiva>
+
+        <Diapositiva disposicion="individual" titulo="Titulo">
+            <region justificacion="centro" tts="Diapositiva con lista no ordenada">
+                <texto>Esto es texto, un parrafo.</texto>
+                <subtitulo>Subtitulo</subtitulo>
+                <listaNoOrdenada>
+                    <item>Definición de requerimientos</item>
+                    <item>Documentación de requerimientos</item>
+                    <item>Mantenimiento de requerimientos</item>
+                </listaNoOrdenada>
+            </region>
+        </Diapositiva>
+
+        <Diapositiva disposicion="individual" titulo="Diapositiva con tabla">
+            <region justificacion="izquierda" tts="diapo con tabla">
+                <texto>A continuación se muestra una tabla:</texto>
+                <tabla descripcion="Tabla de datos">
+                    <fila>
+                        <celda>Nombre</celda>
+                        <celda>Edad</celda>
+                    </fila>
+                    <fila>
+                        <celda>Juan</celda>
+                        <celda>25</celda>
+                    </fila>
+                    <fila>
+                        <celda>María</celda>
+                        <celda>30</celda>
+                    </fila>
+                </tabla>
+            </region>
+        </Diapositiva>
+
+        <Diapositiva disposicion="individual" titulo="Diapositiva con imagen">
+            <region justificacion="centro" tts="diapo con imagen de un gato">
+                <texto>Imagen de un gato:</texto>
+                <imagen url="https://s1.significados.com/foto/gato-og.jpg" descripcion="Gato"/>
+            </region>
+        </Diapositiva>
+
+
+        
+        <Diapositiva disposicion="individual">
+            <region justificacion="derecha">
+                <codigo>
+                    #codigo en python
+                    def suma(a, b):
+                        return a + b
+                    print(suma(2, 3))
+                </codigo>
+            </region>
+        </Diapositiva>
+
+    </Contenido>
+</Videoclase>
