@@ -1,0 +1,54 @@
+ El volumen de la unidad C es OS
+ El n£mero de serie del volumen es: 44F5-1071
+
+ Directorio de C:\Users\carlg\Documents\GitHub\GAVC\Backend\app
+
+09-01-2025  15:11    <DIR>          .
+05-01-2025  23:30    <DIR>          ..
+08-01-2025  16:57    <DIR>          api
+06-01-2025  22:21               429 main.py
+09-01-2025  15:06    <DIR>          output
+05-01-2025  23:31                26 requirements.txt
+06-01-2025  22:18                86 run.py
+09-01-2025  15:11                 0 rutas.txt
+05-01-2025  23:32    <DIR>          templates
+05-01-2025  23:32    <DIR>          utils
+05-01-2025  23:34                 0 __init__.py
+06-01-2025  22:21    <DIR>          __pycache__
+               5 archivos            541 bytes
+
+ Directorio de C:\Users\carlg\Documents\GitHub\GAVC\Backend\app\api
+
+08-01-2025  16:57    <DIR>          .
+09-01-2025  15:11    <DIR>          ..
+08-01-2025  17:02    <DIR>          disposiciones
+08-01-2025  17:03               974 presentation_generator.py
+06-01-2025  22:28             2.071 routes.py
+05-01-2025  23:26                 0 __init__.py
+08-01-2025  17:03    <DIR>          __pycache__
+               3 archivos          3.045 bytes
+
+ Directorio de C:\Users\carlg\Documents\GitHub\GAVC\Backend\app\api\disposiciones
+
+08-01-2025  17:02    <DIR>          .
+08-01-2025  16:57    <DIR>          ..
+09-01-2025  14:59             6.554 individual.py
+08-01-2025  17:01               318 titulo.py
+08-01-2025  17:00                 0 __init__.py
+09-01-2025  14:59    <DIR>          __pycache__
+               3 archivos          6.872 bytes
+ Directorio de C:\Users\carlg\Documents\GitHub\GAVC\Backend\app\templates
+
+05-01-2025  23:32    <DIR>          .
+09-01-2025  15:11    <DIR>          ..
+09-01-2025  15:05             3.434 plantilla.html
+05-01-2025  23:26                 0 __init__.py
+               2 archivos          3.434 bytes
+
+ Directorio de C:\Users\carlg\Documents\GitHub\GAVC\Backend\app\utils
+
+05-01-2025  23:32    <DIR>          .
+09-01-2025  15:11    <DIR>          ..
+05-01-2025  23:29                18 xml_validator.py
+05-01-2025  23:26                 0 __init__.py
+               2 archivos             18 bytes
