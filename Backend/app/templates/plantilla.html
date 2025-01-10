@@ -120,6 +120,29 @@
                 maxScale: 1,
                 plugins: [RevealHighlight]
             });
+
+            // Escuchar el evento de cambio de diapositiva
+            Reveal.on('slidechanged', function (event) {
+                // Detener cualquier síntesis de voz en curso
+                window.speechSynthesis.cancel();
+
+                // Obtener todos los elementos con atributo 'data-tts' en la diapositiva actual
+                var ttsElements = event.currentSlide.querySelectorAll('[data-tts]');
+
+                ttsElements.forEach(function (el) {
+                    var texto = el.getAttribute('data-tts') || el.textContent;
+                    if (texto) {
+                        var utterance = new SpeechSynthesisUtterance(texto);
+                        // Configurar el idioma a español de España
+                        utterance.lang = 'es-ES';
+                        // Opcional: ajustar la velocidad de la voz (0.1 a 10)
+                        utterance.rate = 1;
+                        // Opcional: ajustar el tono de la voz (0 a 2)
+                        utterance.pitch = 1;
+                        window.speechSynthesis.speak(utterance);
+                    }
+                });
+            });
         });
     </script>
 </body>

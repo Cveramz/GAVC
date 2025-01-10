@@ -1,9 +1,3 @@
-from jinja2 import Environment, FileSystemLoader
-import xml.etree.ElementTree as ET
-
-# Inicializar el entorno Jinja2
-env = Environment(loader=FileSystemLoader('templates'))
-
 def handle_region(region) -> str:
     """
     Procesa una única región y genera el HTML correspondiente.
@@ -11,7 +5,7 @@ def handle_region(region) -> str:
     """
     justificacion = region.get("justificacion", "centrado")  # Obtener justificación o predeterminar "centrado"
     tts_attr = region.get("tts", "")  # Obtener atributo 'tts' si está presente
-    tts_html = f' tts="{tts_attr}"' if tts_attr else ""  # Incluir 'tts' si existe
+    data_tts_html = f' data-tts="{tts_attr}"' if tts_attr else ""  # Incluir 'data-tts' si existe
 
     # Mapear la justificación a estilos de CSS
     if justificacion == "izquierda":
@@ -21,42 +15,42 @@ def handle_region(region) -> str:
     else:  # Por defecto, "centrado"
         align_style = "align-items: center; text-align: center;"
 
-    html_content = f"<div style='height:100%; display: flex; flex-direction: column; justify-content: center; {align_style}'{tts_html}>\n"
+    html_content = f"<div style='height:100%; display: flex; flex-direction: column; justify-content: center; {align_style}'{data_tts_html}>\n"
 
     # Iterar sobre los elementos hijos de la región en el orden del XML
     for element in region:
         if element.tag == "subtitulo":
             subtitulo_content = element.text.strip() if element.text else ""
             tts_attr = element.get("tts", "")
-            tts_html = f' tts="{tts_attr}"' if tts_attr else ""
+            data_tts_html = f' data-tts="{tts_attr}"' if tts_attr else ""
             html_content += f"""
             <div>
-                <p{tts_html}><strong>{subtitulo_content}</strong></p>
+                <p{data_tts_html}><strong>{subtitulo_content}</strong></p>
             </div>
             """
         
         elif element.tag == "texto":
             texto_content = element.text.strip() if element.text else ""
             tts_attr = element.get("tts", "")
-            tts_html = f' tts="{tts_attr}"' if tts_attr else ""
+            data_tts_html = f' data-tts="{tts_attr}"' if tts_attr else ""
             html_content += f"""
-                <p{tts_html}>{texto_content}</p>
+                <p{data_tts_html}>{texto_content}</p>
             """
         
         elif element.tag == "codigo":
             codigo_content = element.text.strip() if element.text else ""
             tts_attr = element.get("tts", "")
-            tts_html = f' tts="{tts_attr}"' if tts_attr else ""
+            data_tts_html = f' data-tts="{tts_attr}"' if tts_attr else ""
             html_content += f"""
-            <pre><code{tts_html} data-trim data-noescape>
+            <pre><code{data_tts_html} data-trim data-noescape>
 {codigo_content}
 </code></pre>
             """
         
         elif element.tag == "listaOrdenada":
             tts_attr = element.get("tts", "")
-            tts_html = f' tts="{tts_attr}"' if tts_attr else ""
-            html_content += f"<ol{tts_html}>\n"
+            data_tts_html = f' data-tts="{tts_attr}"' if tts_attr else ""
+            html_content += f"<ol{data_tts_html}>\n"
             for item in element.findall("item"):
                 item_content = item.text.strip() if item.text else ""
                 html_content += f"    <li>{item_content}</li>\n"
@@ -64,8 +58,8 @@ def handle_region(region) -> str:
         
         elif element.tag == "listaNoOrdenada":
             tts_attr = element.get("tts", "")
-            tts_html = f' tts="{tts_attr}"' if tts_attr else ""
-            html_content += f"<ul{tts_html}>\n"
+            data_tts_html = f' data-tts="{tts_attr}"' if tts_attr else ""
+            html_content += f"<ul{data_tts_html}>\n"
             for item in element.findall("item"):
                 item_content = item.text.strip() if item.text else ""
                 html_content += f"    <li>{item_content}</li>\n"
@@ -75,11 +69,11 @@ def handle_region(region) -> str:
             tabla = element
             descripcion = tabla.get("descripcion", "")
             tts_attr = tabla.get("tts", "")
-            tts_html = f' tts="{tts_attr}"' if tts_attr else ""
+            data_tts_html = f' data-tts="{tts_attr}"' if tts_attr else ""
             
             # Iniciar el contenedor de la tabla y la descripción
             html_content += f"""
-            <div style="width: 100%; overflow-x: auto;"{tts_html}>
+            <div style="width: 100%; overflow-x: auto;"{data_tts_html}>
                 <table border='1' style='border-collapse: collapse; width: 100%; min-width: 300px;'>\n
             """
             
@@ -110,10 +104,10 @@ def handle_region(region) -> str:
             url = imagen.get("url", "")
             descripcion = imagen.get("descripcion", "")
             tts_attr = imagen.get("tts", "")
-            tts_html = f' tts="{tts_attr}"' if tts_attr else ""
+            data_tts_html = f' data-tts="{tts_attr}"' if tts_attr else ""
             if url:
                 html_content += f"""
-                <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;"{tts_html}>
+                <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;"{data_tts_html}>
                     <img src="{url}" alt="{descripcion}" style="max-width: 100%; max-height: 70%; height: auto; object-fit: contain;">
                 """
                 if descripcion:
