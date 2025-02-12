@@ -75,5 +75,16 @@
             </region>
         </Diapositiva>
 
+        <Diapositiva disposicion="interactivo-alternativas">
+            <pregunta>¿Cuál de las siguientes opciones es una estructura de control en Python?</pregunta>
+            <alternativas>
+                <alternativa correcto="false">Lista</alternativa> 
+                <alternativa correcto="true">If-Else</alternativa> 
+                <alternativa correcto="false">Tupla</alternativa> 
+                <alternativa correcto="false">Diccionario</alternativa> 
+            </alternativas>
+            <retroalimentacion>La estructura de control If-Else es utilizada para tomar decisiones en un programa.</retroalimentacion>
+        </Diapositiva>
+
     </Contenido>
 </Videoclase>
