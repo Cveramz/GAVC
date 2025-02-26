@@ -149,7 +149,7 @@ def handle_cuarteto_diapositiva(diapositiva) -> str:
         """
     
     # Contenedor para las cuatro regiones usando CSS Grid
-    html_content += f"<div style='flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; padding: 10px;'>\n"
+    html_content += f"<div style='height: 10%; flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; padding: 10px;'>\n"
     
     # Obtener las regiones
     regiones = diapositiva.findall(".//region")
